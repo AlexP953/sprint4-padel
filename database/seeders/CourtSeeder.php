@@ -15,8 +15,8 @@ class CourtSeeder extends Seeder
         for ($i = 0; $i < 8; $i++) {
             DB::table('courts')->insert([
                 'nombre' => 'Pista ' . ($i + 1),
-                'tipo_pista' => $i < 6 ? 'Padel' : 'Tenis', 
+                'tipo_pista' => $i % 5 == 0 ? 'Tenis' : 'Padel', 
             ]);
-        }
+        }      
     }
 }
