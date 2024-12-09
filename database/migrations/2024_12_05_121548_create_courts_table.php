@@ -13,6 +13,7 @@ class CreateCourtsTable extends Migration
             $table->string('nombre'); // Nombre de la pista
             $table->string('tipo_pista'); // Tipo de pista (padel, tenis, etc.)
             $table->timestamps();
+            $table->unique(['nombre', 'tipo_pista']);
         });
     }
     public function down()

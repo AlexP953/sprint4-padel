@@ -13,13 +13,14 @@ class ReservationSeeder extends Seeder
         $faker = Faker::create();
 
         for ($i = 0; $i < 10; $i++) {
+            $fecha_inicio = $faker->dateTimeBetween('now', '+1 month');
+            $fecha_final = (clone $fecha_inicio)->modify('+1 hour');
+
             DB::table('reservations')->insert([
-                [
-                    'id_user' => $faker->numberBetween(1, 10),
-                    'fecha_inicio' => $faker->dateTimeBetween('now', '+1 month'), 
-                    'fecha_final' => $faker->dateTimeBetween('+1 hour', '+2 hours'),
-                    'id_pista' => $faker->numberBetween(1, 5)
-                ]
+                'id_user' => $faker->numberBetween(1, 10),
+                'fecha_inicio' => $fecha_inicio,
+                'fecha_final' => $fecha_final,
+                'id_pista' => $faker->numberBetween(1, 8),
             ]);
         }
     }
