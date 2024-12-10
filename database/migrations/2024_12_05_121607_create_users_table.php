@@ -12,6 +12,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
+            $table->string('password');
             $table->enum('rol', ['user', 'admin'])->default('user'); // Definir el campo ENUM
             $table->string('mail')->unique();
             $table->string('number_phone');
