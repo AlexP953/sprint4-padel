@@ -23,5 +23,18 @@ class ReservationSeeder extends Seeder
                 'id_pista' => $faker->numberBetween(1, 8),
             ]);
         }
+
+        DB::table('reservations')->insert([
+            'id_user' => 11,
+            'fecha_inicio' => $faker->dateTimeBetween('now', '+1 month'),
+            'fecha_final' => (clone $fecha_inicio)->modify('+1 hour'),
+            'id_pista' => $faker->numberBetween(1, 8),
+        ],
+        [
+            'id_user' => 11,
+            'fecha_inicio' => $faker->dateTimeBetween('now', '+1 month'),
+            'fecha_final' => (clone $fecha_inicio)->modify('+1 hour'),
+            'id_pista' => $faker->numberBetween(1, 8),
+        ]);
     }
 }
