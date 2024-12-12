@@ -17,10 +17,18 @@ class UserSeeder extends Seeder
                 'nombre' => $faker->firstName(),
                 'apellido' => $faker->lastName(),
                 'password' => Hash::make('password123'),
-                'rol' => $i == 3 ? 'admin' :'user',
-                'mail' => $faker->unique()->safeEmail(),
+                'rol' => 'user',
+                'email' => $faker->unique()->safeEmail(),
                 'number_phone' => $faker->phoneNumber(),
             ]);
         }
+        DB::table('users')->insert([
+            'nombre' => 'alex',
+            'apellido' => 'peris',
+            'password' => Hash::make(1234),
+            'rol' => 'admin',
+            'email' => 'alexperis95@gmail.com',
+            'number_phone' => '650979610',
+        ]);
     }
 }
