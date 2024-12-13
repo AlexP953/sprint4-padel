@@ -10,8 +10,8 @@ class CreateCourtsTable extends Migration
     {
         Schema::create('courts', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre'); // Nombre de la pista
-            $table->string('tipo_pista'); // Tipo de pista (padel, tenis, etc.)
+            $table->string('nombre');  
+            $table->string('tipo_pista'); 
             $table->timestamps();
             $table->unique(['nombre', 'tipo_pista']);
         });
