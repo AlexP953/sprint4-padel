@@ -5,12 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use App\Livewire\CreateReservation;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ReservationController;
 
 
 Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/reserve', CreateReservation::class)->name('reserve');
+
+Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
