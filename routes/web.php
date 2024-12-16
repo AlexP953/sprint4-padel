@@ -11,9 +11,9 @@ use App\Http\Controllers\ReservationController;
 Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/reserve', CreateReservation::class)->name('reserve');
 
 Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
