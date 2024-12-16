@@ -26,6 +26,17 @@ class ReservationController extends Controller
         return $reservations;
     }
 
+    public function getOneReservation($reservationId)
+    {
+        $reservation = Reservation::find($reservationId);
+    
+        if (!$reservation) {
+            return response()->json(['message' => 'Reservation not found.'], 404);
+        }
+    
+        return response()->json($reservation);
+    }
+
     public function create()
     {}
 
@@ -35,6 +46,7 @@ class ReservationController extends Controller
         return $dateTime->getTimestamp();
     }
 
+    // Crear
     public function store(Request $request)
     {
         $this->user = auth()->user();
@@ -83,6 +95,19 @@ class ReservationController extends Controller
     {
     }
 
-    public function destroy(string $id)
-    {}
+    public function destroy(int $reservationId)
+    {
+        try {
+            $reservation = Reservation::findOrFail($reservationId);
+            $reservation->delete(); 
+            return response()->json([
+                'message' => 'Reserva eliminada correctamente',
+                'success' => true
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error eliminando la reserva: ' . $reservationId . ': ' . $e->getMessage());
+            return response()->json(['message' => 'Error',
+            'success' => false], 500);
+        }
+    }
 }
