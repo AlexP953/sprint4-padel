@@ -32,9 +32,13 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
 
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        try {
+            $request->user()->save();
+            \Log::info('Usuario actualizado: ', [$request->user()]);
+            return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        } catch (\Exception $e) {
+            \Log::error('Error al actualizar el usuario', ['exception' => $e->getMessage()]);
+        }
     }
 
     /**

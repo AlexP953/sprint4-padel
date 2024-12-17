@@ -89,3 +89,17 @@ window.openDeleteModal = function (reservationId) {
         reservationId
     );
 };
+
+window.formHandler = function() {
+    return {
+        isDirty: false,
+        init() {
+            const inputs = this.$el.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    this.isDirty = Array.from(inputs).some(input => input.value !== input.defaultValue);
+                });
+            });
+        }
+    }
+}
