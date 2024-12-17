@@ -81,6 +81,8 @@ class CreateReservation extends Component
     {
         return view('livewire.create-reservation', [
             'availableHours' => $this->availableHours,
-        ]);
+        ])
+        ->extends('layouts.app') 
+        ->section('content');   ;
     }
 }

@@ -3,35 +3,6 @@ window.getInfo = function (info) {
     console.log(info);
 };
 
-// Cambios de vistas
-function switchView(view) {
-    const createContent = document.getElementById('createReservationContent');
-    const myContent = document.getElementById('myReservationsContent');
-    createContent.style.display = (view === 'create') ? 'block' : 'none';
-    myContent.style.display = (view === 'my-reservations') ? 'block' : 'none';
-}
-
-function getCurrentView() {
-    return localStorage.getItem('currentView') || 'create';
-}
-
-function setCurrentView(view) {
-    localStorage.setItem('currentView', view);
-}
-
-function handleViewChange(buttonId, view) {
-    document.getElementById(buttonId).addEventListener('click', function () {
-        switchView(view);
-        setCurrentView(view);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const currentView = getCurrentView();
-    switchView(currentView);
-    handleViewChange('btnCreateReservation', 'create');
-    handleViewChange('btnMyReservations', 'my-reservations');
-});
 
 
 // Logout
