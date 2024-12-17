@@ -19,6 +19,8 @@ class MyReservations extends Component
 
     public function render()
     {
-        return view('livewire.my-reservations');
+        return view('livewire.my-reservations')
+            ->extends('layouts.app') 
+            ->section('content');    
     }
 }
