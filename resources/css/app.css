@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.batman-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #111;
+  color: #f0f0f0;
+  text-align: center;
+  position: relative;
+  width: 100vw;
+}
+
+.batman-logo {
+  fill: #f0f0f0;
+  width: 150px;
+  height: 150px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.message {
+  margin-top: 20px;
+}
+
+.notfound {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
