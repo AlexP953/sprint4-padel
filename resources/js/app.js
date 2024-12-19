@@ -1,6 +1,3 @@
-window.getInfo = function (info) {
-    console.log(info);
-};
 
 // Logout
 window.logout = function () {

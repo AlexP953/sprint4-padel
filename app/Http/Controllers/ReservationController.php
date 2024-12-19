@@ -60,7 +60,7 @@ class ReservationController extends Controller
         $validatedData = $request->validate([
             'date' => 'required|date|after_or_equal:today',
             'hour' => 'required',
-            'pista' => 'required|integer|min:1|max:8',
+            'pista' => 'required|integer|min:1',
         ]);
         
 
