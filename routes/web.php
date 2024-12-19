@@ -7,7 +7,9 @@ use App\Livewire\CreateReservation;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourtController;
 use App\Livewire\MyReservations;
+use App\Livewire\AdminPanel;
 
 
 Route::get('/', function () {
@@ -20,7 +22,10 @@ Route::get('/home', function () {
 
 Route::get('/my-reservations', MyReservations::class)->name('my-reservations');
 Route::get('/create-reservation', CreateReservation::class)->name('create-reservation');
+Route::get('/admin-panel', AdminPanel::class)->name('admin-panel')->middleware('admin');;
 
+Route::post('/create-court', [CourtController::class, 'store'])->name('courts.store');
+Route::delete('/courts/{court}', [CourtController::class, 'destroy']);
 
 Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy']);

@@ -48,3 +48,17 @@
     transform: scale(1);
   }
 }
+
+ /* admin panel change tabs */
+.active-tab {
+  border-bottom: 2px solid #3b82f6;
+  color: #3b82f6;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content:not(.hidden) {
+  display: block;
+}

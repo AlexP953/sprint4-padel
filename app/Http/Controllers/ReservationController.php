@@ -18,7 +18,12 @@ class ReservationController extends Controller
     {}
 
     public function getAllReservations(){
-        return Reservation::all();
+        return $reservations = Reservation::join('users', 'users.id', '=', 'reservations.id_user')
+        ->join('courts', 'courts.id', '=', 'reservations.id_pista')
+        ->select('users.nombre', 'users.apellido', 'users.email', 
+                 'reservations.id','reservations.id_pista', 'reservations.fecha_inicio', 'reservations.fecha_final')
+        ->get();
+
     }
 
     public function getMyReservations($userId){

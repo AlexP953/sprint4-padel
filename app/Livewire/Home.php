@@ -8,14 +8,11 @@ use App\Http\Controllers\CourtController;
 class Home extends Component
 {
     public $courts;
-    public $alonecourt;
 
     public function mount()
     {
         $controller = new CourtController();
-        $this->courts = $controller->getCourts();
-        $this->alonecourt =  $controller->getOneCourt(1);
-        $this->alonecourt =  $controller->getReservationsOfCourt(1);
+        $this->courts = $controller->getAllCourts();
     }
 
     public function render()
