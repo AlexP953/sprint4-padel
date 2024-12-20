@@ -53,15 +53,15 @@ Modify the sections related to the database and email in the `.env` file:
   
    - Install Node.js dependencies with npm:
   ```
-     npm install
-     npm run build
+  npm install
+  npm run build
   ```
 
 ## Generate the application key and migrate the database
 
 ### Generate the application key:
 ```
-   php artisan key:generate
+php artisan key:generate
 ```
 
 ### Create the database locally:
@@ -69,7 +69,7 @@ Modify the sections related to the database and email in the `.env` file:
 
 ### Run the migrations and seed the data:
 ```
-   php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
 ```
 ## Running the Project
 
@@ -78,13 +78,13 @@ Modify the sections related to the database and email in the `.env` file:
   In one terminal, run the following command to start the server:
 
   ```
-    php artisan serve
+php artisan serve
   ```
   
   
 In another terminal, run the following command to start the development process with npm:
   ```
-    npm run dev
+npm run dev
   ```
 
 ## Test Credentials
