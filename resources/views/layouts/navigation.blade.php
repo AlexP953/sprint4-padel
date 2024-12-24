@@ -5,8 +5,8 @@
           <div class="flex">
               <!-- Logo -->
               <div class="shrink-0 flex items-center">
-                  <a href="{{ route('home') }}">
-                      <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                  <a href="{{ route('create-reservation') }}">
+                      <img class="w-6" src="padelBall.png"/>
                   </a>
               </div>
               <!-- Navigation Links -->
