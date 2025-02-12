@@ -7,7 +7,7 @@
             <p>Hora: {{ $reservation->hora_inicio }} - {{ $reservation->hora_final }}</p>
             <p>Pista {{ $reservation->id_pista }}</p>
             <div class="flex justify-end mt-2">
-                <span onclick="openDeleteModal({{ $reservation->id }})" >
+                <span onclick="openDeleteModal('reservation',{{ $reservation->id }})" >
                     <i class="fa-regular fa-trash-can"></i>
                 </span>        
             </div>
